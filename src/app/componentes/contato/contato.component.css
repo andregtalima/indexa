@@ -1,0 +1,30 @@
+.contato ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.contato ul li {
+  list-style: none;
+  color: #212529;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 150%;
+  font-weight: 400;
+}
+
+.contato ul .li-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.contato ul li button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

@@ -1,13 +1,60 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ConteinerComponent } from './componentes/conteiner/conteiner.component';
+import { CabecalhoComponent } from './componentes/cabecalho/cabecalho.component';
+import { SeparadorComponent } from './componentes/separador/separador.component';
+import { ContatoComponent } from './componentes/contato/contato.component';
+
+import agenda from './agenda.json';
+import { FormsModule } from '@angular/forms';
+
+interface Contato {
+  id: number;
+  nome: string;
+  telefone: string;
+}
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  imports: [
+    RouterOutlet,
+    ConteinerComponent,
+    CabecalhoComponent,
+    SeparadorComponent,
+    ContatoComponent,
+    FormsModule,
+  ],
 })
 export class AppComponent {
-  title = 'indexa';
+  alfabeto: string = 'abcdefghijklmnopqrstuvxzyw';
+
+  contatos: Contato[] = agenda;
+
+  filtroPorTexto: string = '';
+
+  removerAcentos(texto: string): string {
+    return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  filtrarContatoPorTexto(): Contato[] {
+    if (!this.filtroPorTexto) {
+      return this.contatos;
+    }
+    return this.contatos.filter((contato) => {
+      return this.removerAcentos(contato.nome)
+        .toLowerCase()
+        .includes(this.removerAcentos(this.filtroPorTexto.toLowerCase()));
+    });
+  }
+
+  filtrarContatosPorLetraInicial(letra: string): Contato[] {
+    return this.filtrarContatoPorTexto().filter((contato) => {
+      return this.removerAcentos(contato.nome)
+        .toLowerCase()
+        .startsWith(this.removerAcentos(letra).toLowerCase());
+    });
+  }
 }
