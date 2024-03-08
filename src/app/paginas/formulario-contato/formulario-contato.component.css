@@ -14,6 +14,13 @@ header .cabecalho-link div {
   align-self: flex-start;
 }
 
+header .cabecalho-link button {
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
 header .cabecalho-link img.seta {
   margin: 0 8px;
 }
@@ -126,6 +133,7 @@ input:focus {
 .botoes {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .botao-cancelar,
