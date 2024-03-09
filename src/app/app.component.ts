@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 import { FormularioContatoComponent } from './paginas/formulario-contato/formulario-contato.component';
@@ -11,8 +11,8 @@ import { ListaContatosComponent } from './paginas/lista-contatos/lista-contatos.
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   imports: [
-    RouterOutlet,
     CommonModule,
+    RouterOutlet,
     FormularioContatoComponent,
     ListaContatosComponent,
   ],

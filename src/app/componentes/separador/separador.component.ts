@@ -1,12 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-separador',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './separador.component.html',
-  styleUrl: './separador.component.css'
+  styleUrl: './separador.component.css',
 })
-export class SeparadorComponent {
-
-}
+export class SeparadorComponent {}

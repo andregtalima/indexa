@@ -2,18 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { ContatoService } from '../../services/contato.service';
 
 import { CabecalhoComponent } from '../../componentes/cabecalho/cabecalho.component';
 import { ContatoComponent } from '../../componentes/contato/contato.component';
 import { ConteinerComponent } from '../../componentes/conteiner/conteiner.component';
 import { SeparadorComponent } from '../../componentes/separador/separador.component';
-import { ContatoService } from '../../services/contato.service';
-
-interface Contato {
-  id: number;
-  nome: string;
-  telefone: string;
-}
+import { FormularioContatoComponent } from '../formulario-contato/formulario-contato.component';
+import { Contato } from '../../componentes/contato/contato';
 
 @Component({
   selector: 'app-lista-contatos',
@@ -26,6 +22,7 @@ interface Contato {
     CabecalhoComponent,
     SeparadorComponent,
     ContatoComponent,
+    FormularioContatoComponent,
   ],
   templateUrl: './lista-contatos.component.html',
   styleUrl: './lista-contatos.component.css',
